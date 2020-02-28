@@ -1,11 +1,13 @@
 package com.ito.car.service;
 
+import java.util.Date;
 import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.ito.car.dto.Car;
 import com.ito.car.dto.CarBooking;
 import com.ito.car.repo.CarBookingRepo;
 
@@ -51,5 +53,10 @@ public class CarBookingServiceImpl implements CarBookingService {
 	public boolean cancelBooking(int bookingId) {
 		bookingRepo.deleteById(bookingId);
 		return true;
+	}
+
+	@Override
+	public List<Object> viewCarsBetweenDate(Date startDate, Date endDate) {
+		return bookingRepo.viewCarsBetweenDate(startDate, endDate);
 	}
 }

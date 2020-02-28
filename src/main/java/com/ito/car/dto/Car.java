@@ -3,13 +3,12 @@ package com.ito.car.dto;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
+import javax.persistence.Transient;
 
 @Entity
 @Table(name = "car")
@@ -37,6 +36,10 @@ public class Car {
 	private long contactNumber;
 	@Column
 	private String contactEmailAddress;
+	
+	@Transient
+	@ManyToOne(cascade = CascadeType.MERGE)
+	private CarBooking carBooking;
 	
 	public int getCarId() {
 		return carId;

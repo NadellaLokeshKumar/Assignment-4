@@ -2,7 +2,6 @@ package com.ito.car.dto;
 import java.util.Date;
 import java.util.List;
 
-import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -40,7 +39,7 @@ public class CarBooking {
 	@Column
 	private String email;
 	
-	@OneToMany(cascade = CascadeType.MERGE)
+	@OneToMany()
 	@JoinColumn(name = "bookingId")
 	private List<Car> carDetails;
 	
