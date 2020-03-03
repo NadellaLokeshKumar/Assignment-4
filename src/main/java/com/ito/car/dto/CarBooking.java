@@ -39,7 +39,7 @@ public class CarBooking {
 	@Column
 	private String email;
 	
-	@OneToMany()
+	@OneToMany
 	@JoinColumn(name = "bookingId")
 	private List<Car> carDetails;
 	

@@ -41,6 +41,17 @@ public class Car {
 	@ManyToOne(cascade = CascadeType.MERGE)
 	private CarBooking carBooking;
 	
+	@Transient
+	@ManyToOne(cascade = CascadeType.ALL)
+	private Location location;
+	
+	
+	public Location getLocation() {
+		return location;
+	}
+	public void setLocation(Location location) {
+		this.location = location;
+	}
 	public int getCarId() {
 		return carId;
 	}
